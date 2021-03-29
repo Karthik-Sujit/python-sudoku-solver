@@ -13,12 +13,12 @@ def print_grid(p):
 	Returns:
 		int: 0
 	"""
-	print("-" * 19)
+	print("-" * 19 * 2)
 	for i in range(9):
 		for j in range(9):
-			print("|" + str(p[i][j]), end="")
+			print(" | " + str(p[i][j]), end="")
 		print('|')
-		print("-" * 19)
+		print("-" * 19 * 2)
 	return 0
 
 # %%
@@ -84,31 +84,31 @@ def solve_sudoku(grid, row, col):
 
 # populating empty grid with helpers, row by row
 # row 1
-puzzle[0] = [3, 0, 6, 5, 0, 8, 4, 0, 0]
+puzzle[0] = [0, 0, 0, 1, 2, 3, 0, 0, 0]
 
 # row 2
-puzzle[1] = [5, 2, 0, 0, 0, 0, 0, 0, 0]
+puzzle[1] = [0, 0, 0, 0, 0, 0, 7, 0, 0]
 
 # row 3
-puzzle[2] = [0, 8, 7, 0, 0, 0, 0, 3, 1]
+puzzle[2] = [0, 0, 8, 0, 0, 0, 0, 1, 0]
 
 # row 4
-puzzle[3] = [0, 0, 3, 0, 1, 0, 0, 8, 0]
+puzzle[3] = [0, 0, 0, 0, 7, 0, 5, 6, 0]
 
 # row 5
-puzzle[4] = [9, 0, 0, 8, 6, 3, 0, 0, 5]
+puzzle[4] = [0, 6, 0, 0, 0, 0, 0, 4, 2]
 
 # row 6
-puzzle[5] = [0, 5, 0, 0, 9, 0, 6, 0, 0]
+puzzle[5] = [0, 2, 0, 0, 0, 8, 0, 0, 0]
 
 # row 7
-puzzle[6] = [1, 3, 0, 0, 0, 0, 2, 5, 0]
+puzzle[6] = [4, 3, 0, 0, 0, 0, 0, 0, 6]
 
 # row 8
-puzzle[7] = [0, 0, 0, 0, 0, 0, 0, 7, 4]
+puzzle[7] = [0, 0, 6, 0, 9, 0, 8, 0, 0]
 
 # row 9
-puzzle[8] = [0, 0, 5, 2, 0, 6, 3, 0, 0]
+puzzle[8] = [0, 0, 0, 0, 0, 5, 0, 0, 3]
 
 print_grid(puzzle)
 
