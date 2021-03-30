@@ -13,12 +13,12 @@ def print_grid(p):
 	Returns:
 		int: 0
 	"""
-	print("-" * 19 * 2)
+	print("-" * (19 * 2 + 1))
 	for i in range(9):
 		for j in range(9):
 			print(" | " + str(p[i][j]), end="")
-		print('|')
-		print("-" * 19 * 2)
+		print(' |')
+		print("-" * (19 * 2 + 1))
 	return 0
 
 # %%
