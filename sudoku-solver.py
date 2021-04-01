@@ -35,10 +35,10 @@ def is_valid(grid, row, col, num):
 		bool: Validity of sudoku grid
 	"""
 	for x in range(9):
-		if grid[row][x] is num:
+		if grid[row][x] == num:
 			return False
 	for x in range(9):
-		if grid[x][col] is num:
+		if grid[x][col] == num:
 			return False
 	start_row = row - row % 3
 	start_column = col - col % 3
@@ -60,10 +60,10 @@ def solve_sudoku(grid, row, col):
 	Returns:
 		bool: recursively calls the function to check each row for the appropriate entry, then fills it
 	"""
-	if row is 8 and col is 9:
+	if row == 8 and col == 9:
 		return True
 
-	if col is 9:
+	if col == 9:
 		row += 1
 		col = 0
 
