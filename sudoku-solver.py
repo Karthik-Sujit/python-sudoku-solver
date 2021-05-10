@@ -2,10 +2,11 @@
 # initializing placeholder puzzle array[array]
 puzzle = [[0 for x in range(9)] for y in range(9)]
 
+
 # %%
 # printing filled grid
 def print_grid(p):
-	"""prints a filled grid using the grid provided
+    """prints a filled grid using the grid provided
 
 	Args:
 		p ([[int]]): puzzle grid with 0's for empty cells
@@ -13,17 +14,18 @@ def print_grid(p):
 	Returns:
 		int: 0
 	"""
-	print("-" * (19 * 2 + 1))
-	for i in range(9):
-		for j in range(9):
-			print(" | " + str(p[i][j]), end="")
-		print(' |')
-		print("-" * (19 * 2 + 1))
-	return 0
+    print("-" * (19 * 2 + 1))
+    for i in range(9):
+        for j in range(9):
+            print(" | " + str(p[i][j]), end = "")
+        print(' |')
+        print("-" * (19 * 2 + 1))
+    return 0
+
 
 # %%
 def is_valid(grid, row, col, num):
-	"""checks sudoku grid for numbers in invalid positions
+    """checks sudoku grid for numbers in invalid positions
 
 	Args:
 		grid ([[[int]]]): list of lists of lists of ints
@@ -35,10 +37,10 @@ def is_valid(grid, row, col, num):
 		bool: Validity of sudoku grid
 	"""
 	for x in range(9):
-		if grid[row][x] == num:
+		if grid[row][x] is num:
 			return False
 	for x in range(9):
-		if grid[x][col] == num:
+		if grid[x][col] is num:
 			return False
 	start_row = row - row % 3
 	start_column = col - col % 3
@@ -48,9 +50,10 @@ def is_valid(grid, row, col, num):
 				return False
 	return True
 
+
 # %%
 def solve_sudoku(grid, row, col):
-	"""solves grid populated with helper digits
+    """solves grid populated with helper digits
 
 	Args:
 		grid ([[int]]): sudoku grid populated with helpers
@@ -60,24 +63,25 @@ def solve_sudoku(grid, row, col):
 	Returns:
 		bool: recursively calls the function to check each row for the appropriate entry, then fills it
 	"""
-	if row == 8 and col == 9:
+	if row is 8 and col is 9:
 		return True
 
-	if col == 9:
+	if col is 9:
 		row += 1
 		col = 0
 
-	if grid[row][col] > 0:
-		return solve_sudoku(grid, row, col + 1)
+    if grid[row][col] > 0:
+        return solve_sudoku(grid, row, col + 1)
 
-	for num in range(1, 10):
-		if is_valid(grid, row, col, num):
-			grid[row][col] = num
+    for num in range(1, 10):
+        if is_valid(grid, row, col, num):
+            grid[row][col] = num
 
-			if solve_sudoku(grid, row, col + 1):
-				return True
-		grid[row][col] = 0
-	return False
+            if solve_sudoku(grid, row, col + 1):
+                return True
+        grid[row][col] = 0
+    return False
+
 
 # %%
 # Driving Code
@@ -114,6 +118,6 @@ print_grid(puzzle)
 
 # %%
 if solve_sudoku(puzzle, 0, 0):
-	print_grid(puzzle)
+    print_grid(puzzle)
 else:
-	print("no solution")
+    print("no solution")
