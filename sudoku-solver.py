@@ -20,7 +20,6 @@ def print_grid(p):
             print(" | " + str(p[i][j]), end="")
         print(" |")
         print("-" * (19 * 2 + 1))
-    return 0
 
 
 # %%
